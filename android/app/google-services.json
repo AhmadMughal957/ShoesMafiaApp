@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "987361706862",
+    "project_id": "foodma-c3eab",
+    "storage_bucket": "foodma-c3eab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987361706862:android:212750307bf82ba0b0777f",
+        "android_client_info": {
+          "package_name": "com.example.foodmafia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987361706862-kp5bk5c172l1st0rpeifha2lgfnp9lkv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACr2Wrx-N-UHoR--AdmrLwCPpI8ikT0Xg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987361706862-kp5bk5c172l1st0rpeifha2lgfnp9lkv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
