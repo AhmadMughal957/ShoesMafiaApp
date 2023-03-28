@@ -1,3 +1,13 @@
+ShoesMaffia App
+Introduction
+ShoesMaffia is a dynamic mobile application for a shoes store. The app allows users to browse and purchase shoes, while the store owner can manage the inventory and orders from an admin panel.The owner can also manage the view of app it has two View Grid View and List View
+
+Features
+User-friendly interface: The app has an easy-to-use interface that allows users to quickly browse shoes by category or search for a specific item.
+Product details: Users can view detailed information about each shoe, including images, descriptions, prices, and available sizes.
+Shopping cart: Users can add items to their cart and complete the purchase through a secure payment gateway.
+Admin panel: The store owner can manage the app's inventory, orders, and user accounts through an intuitive admin panel.
+
 ![Screenshot_20230328-130224 1](https://user-images.githubusercontent.com/127927328/228187216-61fb7432-0491-4644-be7a-eb50bfcf67e0.jpg)![Screenshot_20230328-023944 1](https://user-images.githubusercontent.com/127927328/228187904-e4ce7206-bdc4-4f14-b1e3-ddc85e4f91e2.jpg)
 ![Screenshot_20230328-132800 1](https://user-images.githubusercontent.com/127927328/228188045-27e05c0c-9d08-48e3-b64e-47d22702684b.jpg)
 ![Screenshot_20230328-135844 1](https://user-images.githubusercontent.com/127927328/228188165-8916385d-31c1-4cda-8494-5296aacb1819.jpg)
@@ -12,20 +22,3 @@
 
 ![Screenshot_20230328-135849 1](https://user-images.githubusercontent.com/127927328/228186592-bfa620f0-3905-4b1a-aec8-ffa36e2fbe07.jpg)
 
-# foodmafia
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-hello my name is ahmad
