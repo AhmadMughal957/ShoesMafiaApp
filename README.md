@@ -1,3 +1,4 @@
+
 ShoesMaffia App
 Introduction
 ShoesMaffia is a dynamic mobile application for a shoes store. The app allows users to browse and purchase shoes, while the store owner can manage the inventory and orders from an admin panel.The owner can also manage the view of app it has two View Grid View and List View
@@ -21,4 +22,5 @@ Admin panel: The store owner can manage the app's inventory, orders, and user ac
 
 
 ![Screenshot_20230328-135849 1](https://user-images.githubusercontent.com/127927328/228186592-bfa620f0-3905-4b1a-aec8-ffa36e2fbe07.jpg)
+![Screenshot_20230328-132627 2](https://user-images.githubusercontent.com/127927328/228195682-16057973-8edd-4e0d-8489-bca517ebff6b.jpg)
 
