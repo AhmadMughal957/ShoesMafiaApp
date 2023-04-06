@@ -3,22 +3,25 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:foodmafia/Screens/HomeScreen.dart';
-import 'package:foodmafia/signup%20page.dart';
+import 'package:foodmafia/View/Details_Screens/loginScreen.dart';
+import 'package:foodmafia/View/Front_Screens/HomeScreen.dart';
+
 import 'package:provider/provider.dart';
-import 'cartpage.dart';
-import 'classes/Cartmodel.dart';
-import 'Screens/Sneaker.dart';
-import 'classes/caatalogmodel.dart';
+import 'View/cartpage.dart';
+import 'ViewModel/Cartmodel.dart';
+import 'View/Front_Screens/Sneaker.dart';
+import 'Models/caatalogmodel.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'loginScreen.dart';
 
 /// This is a reimplementation of the default Flutter application using provider + [ChangeNotifier].
+var emaill;
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+
+  );
   runApp(
     MultiProvider(
       providers: [
@@ -26,6 +29,7 @@ void main()async {
         ChangeNotifierProvider(create: (_) => Cart()),
       ],
       child: const MaterialApp(
+        debugShowCheckedModeBanner:false,
         home: SplashScreen(),
       ),
     ),
@@ -46,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if(user !=null) {
         Timer(Duration(seconds: 2), () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) =>HomeScreen(email: Cart().email,)));
+              MaterialPageRoute(builder: (context) =>HomeScreen()));
         });
 
       }else{
@@ -56,7 +60,6 @@ class _SplashScreenState extends State<SplashScreen> {
         });
       }
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -66,12 +69,15 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: 400,
                 child: Image.asset('assets/images/Logo.png')
             ),
+            SizedBox(
+              height: 30,
+            ),
             Container(
               height: 5,
               width: 200,
               child:  LinearProgressIndicator(
                 backgroundColor: Colors.white,
-                color: Colors.green,
+                color: Colors.black,
               ),
             )
 

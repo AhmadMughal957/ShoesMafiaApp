@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'Catalogmodel2.dart';
-import 'caatalogmodel.dart';
+import '../Models/Catalogmodel2.dart';
+import '../Models/caatalogmodel.dart';
 class Cart with ChangeNotifier {
   bool pressed=false;
    var email;
