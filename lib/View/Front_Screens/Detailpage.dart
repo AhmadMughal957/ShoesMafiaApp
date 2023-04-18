@@ -118,9 +118,9 @@ class _DetailState extends State<Detail> {
                   imageBuilder: (context, imageProvider) => Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: imageProvider,
-                          fit: BoxFit.cover,
-                         ),
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   placeholder: (context, url) => CircularProgressIndicator(),
@@ -132,58 +132,58 @@ class _DetailState extends State<Detail> {
               child: Container(
                   height: scaler.getHeight(50),
                   width: scaler.getWidth(99),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Padding(
-                          padding: scaler.getPaddingLTRB(5, 1, 0, 0),
-                          child: Container(
-                            height: scaler.getHeight(10),
-                            width: scaler.getWidth(50),
-                            child: Text('${name}',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
-                              fontStyle: FontStyle.italic,
-                            ),),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: scaler.getPaddingLTRB(5, 1, 0, 0),
+                            child: Container(
+                              height: scaler.getHeight(10),
+                              width: scaler.getWidth(50),
+                              child: Text('${name}',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                  fontStyle: FontStyle.italic,
+                                ),),
+                            ),
                           ),
-                        ),
 
-                        Padding(
-                          padding: scaler.getPaddingLTRB(23, 0, 0, 6.5),
-                          child: Container(
-                            height: scaler.getHeight(3),
-                            width: scaler.getWidth(20),
-                            child: Text('\$${price}',
-                              style: TextStyle(
+                          Padding(
+                            padding: scaler.getPaddingLTRB(23, 0, 0, 6.5),
+                            child: Container(
+                              height: scaler.getHeight(3),
+                              width: scaler.getWidth(20),
+                              child: Text('\$${price}',
+                                style: TextStyle(
 
-                                  fontSize: 25
-                              ),),
+                                    fontSize: 25
+                                ),),
+                            ),
                           ),
-                        ),
                         ],
-                    ),
+                      ),
 
-                    Container(
-                      padding: scaler.getPaddingLTRB(2, 1, 0, 0),
-                      alignment: Alignment.topLeft,
-                      color: Colors.grey.shade50,
-                      height: scaler.getHeight(15),
-                      width: scaler.getWidth(90),
-                      child: Text('${desc}',style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        color: Colors.black54,
-                        fontSize: 20
-                      ),),
-                    ),
-                    SizedBox(
-                      height: scaler.getHeight(2),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 200,top: 0),
-                      child: Container(
+                      Container(
+                        padding: scaler.getPaddingLTRB(2, 1, 0, 0),
+                        alignment: Alignment.topLeft,
+                        color: Colors.grey.shade50,
+                        height: scaler.getHeight(15),
+                        width: scaler.getWidth(90),
+                        child: Text('${desc}',style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black54,
+                            fontSize: 20
+                        ),),
+                      ),
+                      SizedBox(
+                        height: scaler.getHeight(2),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 200,top: 0),
+                        child: Container(
                           height: 50,
                           width: 150,
                           child:   DropdownButton(
@@ -201,12 +201,12 @@ class _DetailState extends State<Detail> {
                               );
                             }).toList(),
                           ),
+                        ),
                       ),
-                    ),
 
-                    Padding(
-                      padding: const EdgeInsets.only(right: 200,),
-                      child: Container(
+                      Padding(
+                        padding: const EdgeInsets.only(right: 200,),
+                        child: Container(
                           height: 50,
                           width: 150,
                           child: DropdownButton(
@@ -224,72 +224,72 @@ class _DetailState extends State<Detail> {
                               );
                             }).toList(),
                           ),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 30),
-                      child: StreamBuilder(
-                        stream: GetData().Sneakers(),
-                        builder: (context ,snapshot){
-                          if(snapshot.hasData){
-                            final users=snapshot.data!;
-                            return Consumer<Cart>(
-                              builder: (context, cart,child){
-                                return cart.items.contains(users[index])?Container(
-                                  height: 50,
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFE7ECEF),
-                                    shape: BoxShape.circle
-                                  ),
-                                    child: Icon(Icons.done_outline_sharp,size: 35,)):InkWell(
-                                  onTap: (){
-                                    print(users[index].name);
-                                    cart.pressed=true;
-                                    cart.add2(_selectedLocation2!);
-                                    cart.add3(selectedLocation!);
-                                    cart.add(users[index]);
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    height:50,
-                                    width:250,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color(0xFFE7ECEF),
-                                          Colors.white
-                                        ],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: StreamBuilder(
+                          stream: GetData().Sneakers(),
+                          builder: (context ,snapshot){
+                            if(snapshot.hasData){
+                              final users=snapshot.data!;
+                              return Consumer<Cart>(
+                                builder: (context, cart,child){
+                                  return cart.items.contains(users[index])?Container(
+                                      height: 50,
+                                      width: 50,
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFFE7ECEF),
+                                          shape: BoxShape.circle
                                       ),
-                                      borderRadius: BorderRadius.circular(20),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black12,
-                                          offset: Offset(5, 5),
-                                          blurRadius: 10,
-                                        )
-                                      ],
+                                      child: Icon(Icons.done_outline_sharp,size: 35,)):InkWell(
+                                    onTap: (){
+                                      print(users[index].name);
+                                      cart.pressed=true;
+                                      cart.add2(_selectedLocation2!);
+                                      cart.add3(selectedLocation!);
+                                      cart.add(users[index]);
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      height:50,
+                                      width:250,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color(0xFFE7ECEF),
+                                            Colors.white
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        borderRadius: BorderRadius.circular(20),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black12,
+                                            offset: Offset(5, 5),
+                                            blurRadius: 10,
+                                          )
+                                        ],
+                                      ),
+                                      child: Text('Add to Cart',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold
+                                        ),),
                                     ),
-                                    child: Text('Add to Cart',
-                                      style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold
-                                      ),),
-                                  ),
-                                );
-                              },
-                            );
-                          }
-                          else return Text('');
-                        },
+                                  );
+                                },
+                              );
+                            }
+                            else return Text('');
+                          },
 
+                        ),
                       ),
-                    ),
 
-                  ],
-                )
+                    ],
+                  )
 
               ),
             ),

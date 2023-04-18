@@ -13,6 +13,8 @@ import 'View/Front_Screens/Sneaker.dart';
 import 'Models/caatalogmodel.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'ViewModel/LoginClass.dart';
+
 
 /// This is a reimplementation of the default Flutter application using provider + [ChangeNotifier].
 var emaill;
@@ -22,18 +24,19 @@ void main()async {
   await Firebase.initializeApp(
 
   );
-  runApp(
-    MultiProvider(
-      providers: [
-
-        ChangeNotifierProvider(create: (_) => Cart()),
-      ],
-      child: const MaterialApp(
-        debugShowCheckedModeBanner:false,
-        home: SplashScreen(),
+    runApp(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => loginScreen()),
+          ChangeNotifierProvider(create: (_) => Cart()),
+        ],
+        child: const MaterialApp(
+          initialRoute: '/',
+          debugShowCheckedModeBanner:false,
+          home: SplashScreen(),
+        ),
       ),
-    ),
-  );
+    );
 }
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

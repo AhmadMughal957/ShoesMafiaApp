@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../Models/Catalogmodel2.dart';
 import '../Models/caatalogmodel.dart';
 class Cart with ChangeNotifier {
+  String? selectedLocation;
+  String? selectedLocation2;
   bool pressed=false;
    var email;
    var size=[];
