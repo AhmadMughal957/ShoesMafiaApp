@@ -41,7 +41,7 @@ class _CartpageState extends State<Cartpage> {
           color: Colors.black, // <-- SEE HERE
         ),
         backgroundColor: Colors.white,
-        title: Text('Cart-Page',style: TextStyle(
+        title: Text('Cart-Pagee',style: TextStyle(
             fontStyle: FontStyle.italic,
             color: Colors.black,
             fontSize: 25
