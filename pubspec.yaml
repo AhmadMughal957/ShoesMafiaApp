@@ -29,7 +29,10 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_stripe: ^9.0.0+1
+  http: ^0.13.5
   flutter_screen_scaler: ^2.1.0
+  shared_preferences: ^2.0.7
   intl: ^0.17.0
   badges: ^3.0.2
   rounded_loading_button: ^2.0.8
@@ -41,6 +44,7 @@ dependencies:
   provider: ^6.0.3
   firebase_auth: ^4.2.6
   firebase_core: ^2.5.0
+  firebase_messaging: ^14.4.0
   flutter:
     sdk: flutter
 
@@ -50,6 +54,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  test:
   flutter_test:
     sdk: flutter
 

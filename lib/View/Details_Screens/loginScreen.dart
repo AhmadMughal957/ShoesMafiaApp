@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screen_scaler/flutter_screen_scaler.dart';
-import 'package:foodmafia/classes/Cartmodel.dart';
-import 'package:foodmafia/signup%20page.dart';
-
-import 'Screens/HomeScreen.dart';
-import 'Screens/Sneaker.dart';
+import 'package:foodmafia/View/Front_Screens/HomeScreen.dart';
+import 'package:foodmafia/View/Details_Screens/signup%20page.dart';
+import 'package:foodmafia/ViewModel/Cartmodel.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -18,7 +18,10 @@ class _LoginScreenState extends State<LoginScreen> {
   bool loading=false;
   late String email;
   late String password;
-
+  bool _passwordVisible=true;
+  void initState() {
+    _passwordVisible = false;
+  }
   @override
   Widget build(BuildContext context) {
     TextEditingController emailcontroller=TextEditingController();
@@ -30,12 +33,6 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Container(
           height: scaler.getHeight(105),
           width: scaler.getWidth(100),
-          decoration:BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/LoginScreenimage.png"),
-              fit: BoxFit.cover,
-            ),
-          ),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -43,27 +40,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: scaler.getHeight(5),
                 ),
-                Icon(Icons.local_grocery_store_outlined,
-                size: scaler.getTextSize(30),),
-                Text('Store',
-                  style: TextStyle(
-                      fontSize: 30
-                  ),
+                Container(
+                  height: scaler.getHeight(40),
+                  width: scaler.getHeight(50),
+                  child: Image.asset('assets/images/pngegg.png'),
                 ),
                 SizedBox(
-                  height: 140,
+                  height: scaler.getHeight(10),
                 ),
+              
                 SizedBox(
-                  height: 100,
-                ),
-                SizedBox(
-                  height: 70,
-                  width: 350,
+                  height: scaler.getHeight(8),
+                  width: scaler.getWidth(85),
                   child: TextFormField(
                     decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.email_outlined,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         border: OutlineInputBorder(
                           // width: 0.0 produces a thin "hairline" border
@@ -71,9 +64,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderSide: BorderSide.none,
                         ),
 
-                        hintStyle: TextStyle(color: Colors.white,fontFamily: "WorkSansLight"),
+                        hintStyle: TextStyle(color: Colors.black,fontFamily: "WorkSansLight"),
                         filled: true,
-                        fillColor: Colors.white24,
+                        fillColor: Colors.black12,
                         hintText: 'Enter Email address'),
                     onChanged: (value) {
                       email=value;
@@ -84,13 +77,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 10,
                 ),
                 SizedBox(
-                  height: 70,
-                  width: 350,
+                  height: scaler.getHeight(10),
+                  width: scaler.getWidth(85),
                   child: TextFormField(
+                    obscureText: !_passwordVisible,
                     decoration:  InputDecoration(
+                        suffixIcon: IconButton(
+                            onPressed: (){
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            }, icon: Icon(
+                          _passwordVisible
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: Colors.black,
+                        )),
                         prefixIcon: Icon(
                           Icons.person,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                         border: OutlineInputBorder(
                           // width: 0.0 produces a thin "hairline" border
@@ -98,9 +103,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderSide: BorderSide.none,
                         ),
 
-                        hintStyle: TextStyle(color: Colors.white,fontFamily: "WorkSansLight"),
+                        hintStyle: TextStyle(color: Colors.black,fontFamily: "WorkSansLight"),
                         filled: true,
-                        fillColor: Colors.white24,
+                        fillColor: Colors.black12,
                         hintText: 'Password'),
                     onChanged: (value) {
                       password=value;
@@ -110,19 +115,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 10,
                 ),
-                loading?CircularProgressIndicator(color: Colors.grey,):GestureDetector(
+                loading?CircularProgressIndicator(color: Colors.white,):GestureDetector(
                   onTap: () {
                     if(email.isEmpty){
                       final snackBar=SnackBar(
                           content: Text('Fill the email address'));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     }
-                    else setState(() {
-                      Cart().email=email;
-                      print( Cart().email);
+                    else setState(() async{
+                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                      await prefs.setString('email', email);
                       loading=true;
                       _auth.signInWithEmailAndPassword(email: email, password: password).then((value){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen(email: email,)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
                         setState(() {
                           loading=false;
                         });
@@ -182,14 +187,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 120),
-                      child: Text('Do u have Account?'),
+                      child: Text('Do you have Account?'),
                     ),
                     TextButton(
                         onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>Signup()));
                         }, child: Text("Sign up",
                       style: TextStyle(
-                     color: Colors.white
+                     color: Colors.black
                       ),
                     ))
                   ],
